@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang ='fr'>
 
     <head>
-        <title>HTML base tag</title>
+        <meta charset="utf-8">
+        <link href="signin.css" rel="stylesheet">
+        <title>Index</title>
     </head>
 
     <header>
