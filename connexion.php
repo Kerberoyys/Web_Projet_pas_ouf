@@ -37,7 +37,9 @@
                         $_SESSION['username']=$_POST['username'];
                         $_SESSION['password']=$_POST['password'];
                         $_SESSION['statut']=isAdmin($_POST['username']);
-                        redirect('index',0);
+                        var_dump($_SESSION['username']);
+                        var_dump($_SESSION['password']);
+                        var_dump($_SESSION);
                     }
                     else {
                         echo "<p>Erreur d'authentification</p>";

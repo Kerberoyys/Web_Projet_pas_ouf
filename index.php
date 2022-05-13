@@ -20,12 +20,12 @@
     <body>
 
         <?php
-        if (empty($_SESSION))
+        if (empty($_SESSION["username"]))
         {
             redirect('connexion.php',0);
         }
         else {
-            echo 'bite';
+            echo 'bad';
         }
 
 
