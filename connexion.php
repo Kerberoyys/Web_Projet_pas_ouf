@@ -34,6 +34,14 @@
                 <?php
                 if(isset($_POST['username'])  && isset($_POST['password']) ){
                     if(compteExiste($_POST['username'],$_POST['password'])){
+                        // MISE EN LOGS
+                        // 1 : on ouvre le fichier
+                        $monfichier = fopen('reussi.log', 'a+');
+                        // 2 : on fera ici nos opérations sur le fichier...
+                        fputs($monfichier, $_POST['username']." de ".$_SERVER['REMOTE_ADDR']." à ".date('ljS \of F Y h:i:s A'));
+                        fputs($monfichier, "\n");
+                        // 3 : quand on a fini de l'utiliser, on ferme le fichier
+                        fclose($monfichier);
                         //echo 'OK';
                         $_SESSION['username']=$_POST['username'];
                         $_SESSION['password']=$_POST['password'];
@@ -43,6 +51,12 @@
                         redirect('index.php',0);
                     }
                     else {
+                        $monfichier = fopen('echoué.log', 'a+');
+                        // 2 : on fera ici nos opérations sur le fichier...
+                        fputs($monfichier, $_POST['username']." de ".$_SERVER['REMOTE_ADDR']." à ".date('ljS \of F Y h:i:s A'));
+                        fputs($monfichier, "\n");
+                        // 3 : quand on a fini de l'utiliser, on ferme le fichier
+                        fclose($monfichier);
                         echo "<p>Erreur d'authentification</p>";
                     }
                 }
