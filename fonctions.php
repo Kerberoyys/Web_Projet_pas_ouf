@@ -60,7 +60,7 @@ function listeProd()
 
     $retour = false;
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
-    $requete = "SELECT prixTTC,designation FROM produit;";
+    $requete = "SELECT DISTINCT prixTTC,designation FROM produit;";
     $resultat = $madb->query($requete);
     if ($resultat) {
         $retour = $resultat->fetchAll(PDO::FETCH_ASSOC);

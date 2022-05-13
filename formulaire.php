@@ -23,7 +23,7 @@ function afficheFormulaireProduitsParPrix(){
     // CNX BDD + REQUETE pour obtenir les prix correspondantes à des produits
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
     // SELECT DISTINCT v.Insee, CP, Commune FROM villes v INNER JOIN utilisateurs u ON v.Insee = u.Insee;
-    $requete = "SELECT DISTINCT prixTTC,designation FROM produit;";
+    $requete = "SELECT DISTINCT prixTTC,designation FROM produit group by prixTTC;";
     $resultat = $madb->query($requete);
     if($resultat){
         $produits = $resultat->fetchAll(PDO::FETCH_ASSOC);
