@@ -2,6 +2,7 @@
 <html>
 
     <head>
+        <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
         <title>Page de connexion</title>
     </head>
 
@@ -12,31 +13,22 @@
     </nav>
 
     <body>
-        <fieldset>
-        <legend>Contact Form</legend>
-        <form name="frmContact" method="post" action="contact.php">
-        <p>
-        <label for="Name">Name </label>
-        <input type="text" name="txtName" id="txtName">
-        </p>
-        <p>
-        <label for="email">Email</label>
-        <input type="text" name="txtEmail" id="txtEmail">
-        </p>
-        <p>
-        <label for="phone">Phone</label>
-        <input type="text" name="txtPhone" id="txtPhone">
-        </p>
-        <p>
-        <label for="message">Message</label>
-        <textarea name="txtMessage" id="txtMessage"></textarea>
-        </p>
-        <p>&nbsp;</p>
-        <p>
-        <input type="submit" name="Submit" id="Submit" value="Submit">
-        </p>
-        </form>
-        </fieldset>
+        <div id="container">
+            <!-- zone de connexion -->
+            
+            <form action="index.php" method="POST">
+                <h1>Connexion</h1>
+                
+                <label><b>Nom d'utilisateur</b></label>
+                <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+
+                <label><b>Mot de passe</b></label>
+                <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+                <input type="submit" id='submit' value='LOGIN' >
+                
+            </form>
+        </div>
     </body>
 
 

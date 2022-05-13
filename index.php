@@ -1,9 +1,12 @@
+<?php session_start();?>
+<?php 
+    include 'fonctions.php';
+?>
 <!DOCTYPE html>
 <html lang ='fr'>
 
     <head>
         <meta charset="utf-8">
-        <link href="signin.css" rel="stylesheet">
         <title>Index</title>
     </head>
 
@@ -11,9 +14,23 @@
     </header>
 
     <nav>
+
     </nav>
     
     <body>
+
+        <?php
+        var_dump($_SESSION);
+        if (empty($_SESSION)){
+            redirect('location:connexion.php',0);
+        }
+
+        else {
+            echo "<p> ddd</p>";
+        }
+
+        ?>
+
     </body>
 
 
