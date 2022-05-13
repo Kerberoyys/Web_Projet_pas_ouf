@@ -22,7 +22,7 @@
         <?php
         var_dump($_SESSION);
         if (empty($_SESSION)){
-            redirect('location:connexion.php',0);
+            redirect('connexion.php',0);
         }
 
         else {
