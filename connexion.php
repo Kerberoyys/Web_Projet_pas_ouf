@@ -40,6 +40,7 @@
                         var_dump($_SESSION['username']);
                         var_dump($_SESSION['password']);
                         var_dump($_SESSION);
+                        echo "<p>Bonjour</p>";
                     }
                     else {
                         echo "<p>Erreur d'authentification</p>";
