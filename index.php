@@ -25,7 +25,7 @@
             redirect('connexion.php',0);
         }
         else {
-            echo 'bad';
+            echo 'ok';
         }
 
 

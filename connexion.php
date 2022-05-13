@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang = 'fr'>
 
@@ -39,8 +40,7 @@
                         $_SESSION['statut']=isAdmin($_POST['username']);
                         var_dump($_SESSION['username']);
                         var_dump($_SESSION['password']);
-                        var_dump($_SESSION);
-                        echo "<p>Bonjour</p>";
+                        redirect('index.php',0);
                     }
                     else {
                         echo "<p>Erreur d'authentification</p>";
