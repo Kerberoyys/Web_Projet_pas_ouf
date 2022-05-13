@@ -15,18 +15,18 @@
     }
 
 
-    function isAdmin($mail){ // Retourne la valeur du statut. Changement de sujet!!!!!
+    function isAdmin($login){ // Retourne la valeur du statut. Changement de sujet!!!!!
         $retour = false ;
         // A faire
         $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
-        $mail= $madb->quote($mail);
+        $login= $madb->quote($login);
         //SELECT Statut FROM utilisateurs WHERE Email = 'etu@etu.fr'
-        $requete = "SELECT Statut FROM utilisateurs WHERE Email = $mail;";
+        $requete = "SELECT statut FROM comptes WHERE login = $login;";
         //var_dump($requete);echo "<br/>";
         $resultat = $madb->query($requete);
         if($resultat){
             $res = $resultat->fetch(PDO::FETCH_ASSOC);
-            $retour = $res['Statut'];
+            $retour = $res['statut'];
         }
         return $retour;
     }

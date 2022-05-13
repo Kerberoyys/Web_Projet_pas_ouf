@@ -20,11 +20,12 @@
     <body>
 
         <?php
-        if (empty($_SESSION) && empty($_SESSION["password"])){
+        if (empty($_SESSION))
+        {
             redirect('connexion.php',0);
         }
         else {
-            echo '<p>Connecté</p>';
+            echo 'bite';
         }
 
 
