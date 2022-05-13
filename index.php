@@ -20,7 +20,7 @@
     <body>
 
         <?php
-        if (empty($_SESSION["username"]))
+        if (empty($_SESSION))
         {
             redirect('connexion.php',0);
         }
