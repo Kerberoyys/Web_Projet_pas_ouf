@@ -7,6 +7,7 @@ include 'formulaire.php';
 <html lang='fr'>
 
 <head>
+    <link rel="stylesheet" href="style1.css" media="screen" type="text/css" />
     <meta charset="utf-8">
     <title>Index</title>
 </head>
