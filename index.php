@@ -68,6 +68,11 @@ include 'formulaire.php';
 
 </article>
 
+<aside>
+    $tab=listeProduitsParPrix($_POST['prix']);
+    if($tab) afficheTableau($tab);
+</aside>
+
 
 <footer>
     <p>Pied de la page <?php echo $_SERVER['PHP_SELF']; ?></p>
