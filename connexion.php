@@ -66,9 +66,5 @@
     </body>
 
 
-
-
-    <footer>
-    </footer>
   
 </html>

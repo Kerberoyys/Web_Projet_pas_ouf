@@ -56,7 +56,7 @@ function listeUtilisateurParVille($prix){
 
 
 function listeProd()
-{ // A faire
+{
 
     $retour = false;
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
@@ -69,7 +69,17 @@ function listeProd()
 }
 
 //*******************************************************************************************
-
+function listeAvis(){
+    $retour = false;
+    $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
+    $requete = "SELECT DISTINCT prixTTC,designation FROM produit;";
+    $resultat = $madb->query($requete);
+    if ($resultat) {
+        $retour = $resultat->fetchAll(PDO::FETCH_ASSOC);
+    }
+    return $retour;
+}
+//*******************************************************************************************
 
 function listeProduitsParPrix($prix){
     $retour = false ;

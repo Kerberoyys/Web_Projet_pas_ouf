@@ -69,8 +69,8 @@ include 'formulaire.php';
 </article>
 
 <aside>
-    $tab=listeProduitsParPrix($_POST['prix']);
-    if($tab) afficheTableau($tab);
+    $prod = listeAvis();
+    if ($prod) afficheTableau($prod);
 </aside>
 
 
