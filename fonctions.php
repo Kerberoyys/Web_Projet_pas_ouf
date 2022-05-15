@@ -69,10 +69,11 @@ function listeProd()
 }
 
 //*******************************************************************************************
-function listeAvis(){
+function listeAvis()
+{
     $retour = false;
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
-    $requete = "SELECT DISTINCT prixTTC,designation FROM produit;";
+    $requete = "SELECT prenom,designation as 'paire de chaussures',note,commentaire FROM avisclient INNER JOIN produit ON produit.idProduit = avisclient.idProduit INNER JOIN client on client.email = avisclient.email;";
     $resultat = $madb->query($requete);
     if ($resultat) {
         $retour = $resultat->fetchAll(PDO::FETCH_ASSOC);

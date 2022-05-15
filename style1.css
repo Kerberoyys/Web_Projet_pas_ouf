@@ -9,6 +9,7 @@ body{
     margin-right:5%;
     margin-bottom:5%;
 
+
 }
 
 h1{
@@ -18,12 +19,12 @@ h1{
 }
 
 a:link, a:active, a:visited {
-    color: #a71817;
+    color: black;
     background-color: transparent;
 }
 
 a:hover {
-    color: #a71817;
+    color: black;
     text-decoration: none;
     background-color: transparent;
     text-decoration: underline;
@@ -35,6 +36,8 @@ header {
     margin-bottom:5%;
     text-decoration-line: underline;
     text-decoration-color: black;
+    border:2px solid black;
+
 
 
     /* background-image: url(rt.png);
@@ -47,6 +50,8 @@ nav {
     width:100%;
     padding:1%;
     margin-bottom:2%;
+    border:2px solid black;
+
 }
 
 article {
@@ -55,11 +60,15 @@ article {
     padding:1%;
     padding-bottom:2%;
     margin-bottom:2%;
+    border:2px solid black;
+
 }
 
 aside {
     float:left;
     width:40%;
+    border:2px solid black;
+
 }
 
 
@@ -83,7 +92,7 @@ table /* Le tableau en lui-même */
 
 th /* Les cellules d'en-tête */
 {
-    background-color: black;
+    background-color: grey;
     color: white;
     font-size: 1.1em;
 

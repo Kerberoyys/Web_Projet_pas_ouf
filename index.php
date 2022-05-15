@@ -41,7 +41,7 @@ include 'formulaire.php';
     if (empty($_SESSION))
         echo '<h1>Vous êtes déconnectés</h1>';
     else
-        echo '<h1>Vous êtes connectés comme ' . $_SESSION['username'] . '</h1>';
+        echo '<h1>Vous êtes connectés avec le compte ' . $_SESSION['username'] . '</h1>';
 
     // Route de traitement de la zone centrale de la page en fonction des liens GET du menu s'il y a une session
     if (!empty($_SESSION) && !empty($_GET) && isset($_GET["action"])) {
@@ -69,8 +69,11 @@ include 'formulaire.php';
 </article>
 
 <aside>
+    <?php
+    echo '<h1> Avis des clients :</h1>';
     $prod = listeAvis();
     if ($prod) afficheTableau($prod);
+    ?>
 </aside>
 
 
