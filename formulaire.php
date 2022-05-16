@@ -3,19 +3,18 @@
 
 
 function afficheMenu(){
-    // à compléter
     ?>
-    <ul>
+    <ul class = "horizontal">
+        <li><a href="index.php" title="Accueil">Accueil </a></li>
         <li><a href="index.php?action=liste_produits" title="Lister les produits">Lister les produits</a></li>
         <li><a href="index.php?action=liste_produits_prix" title="Lister les produits par prix">Lister les
                 produits par prix</a></li>
-    </ul>
-    <ul>
+
     <?php
     if($_SESSION['statut']=="administrateur"){
         ?>
-        <li><a href="insertion.php?action=inserer_produit" title="Insérer un utilisateur">Insérer un produit</a></li>
-        <li><a href="modification.php?action=modifier_produit" title="Modifier un utilisateur">Modifier un produit</a></li>
+        <li><a href="insertion.php?action=inserer_produit" title="Insérer un prdouit">Insérer un produit</a></li>
+        <li><a href="modification.php?action=modifier_avis" title="Modifier un avis">Modifier un avis</a></li>
         <?php
     }
     ?>
@@ -61,7 +60,6 @@ function afficheFormulaireProduitsParPrix(){
 //*******************************************************************************************
 
 function afficheFormulaireAjoutProd(){
-    // connexion BDD et récupération des villes
 		echo "<br/>";
 
 	?>

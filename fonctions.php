@@ -37,24 +37,6 @@ function isAdmin($login)
 //*******************************************************************************************
 
 
-
-function listeUtilisateurParVille($prix){
-    $retour = false ;
-    $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
-    $prix = $madb->quote($prix);
-
-    $requete = "";
-    $resultat = $madb->query($requete);
-    if($resultat){
-        $retour = $resultat->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-
-    return $retour;
-}
-//*******************************************************************************************
-
-
 function listeProd()
 {
 
