@@ -5,7 +5,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang='fr'>
 
 <head>
     <meta charset="utf-8">
@@ -20,7 +20,7 @@
     <nav>
         <?php
         if(empty($_SESSION) || isset ($_SESSION["statut"]) && $_SESSION["statut"] !="administrateur") {
-            echo "<p> Vous n'etes pas connecté ou pas admin</p>";
+            echo "<p> Vous n'êtes pas connecté ou pas admin</p>";
             redirect("index.php",1);
         }
         else {
@@ -35,7 +35,7 @@
         <article>
 
             <?php
-            echo '<h1>Inserer un nouveau produit :</h1>';
+            echo '<h1>Insérer un nouveau produit :</h1>';
             afficheFormulaireAjoutProd();
             #La vérification du formulaire doit se faire au niveau du client en Javascript (Option 2).
             #ici

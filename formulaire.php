@@ -13,7 +13,7 @@ function afficheMenu(){
     <?php
     if($_SESSION['statut']=="administrateur"){
         ?>
-        <li><a href="insertion.php?action=inserer_produit" title="Insérer un prdouit">Insérer un produit</a></li>
+        <li><a href="insertion.php?action=insérer_produit" title="Insérer un produit">Insérer un produit</a></li>
         <li><a href="modification.php?action=modifier_avis" title="Modifier un avis">Modifier un avis</a></li>
         <?php
     }
@@ -30,9 +30,8 @@ function afficheMenu(){
 
 function afficheFormulaireProduitsParPrix(){
     echo "<br/>";
-    // CNX BDD + REQUETE pour obtenir les prix correspondantes à des produits
+    // CNX BDD + REQUÊTE pour obtenir les prix correspondants à des produits
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
-    // SELECT DISTINCT v.Insee, CP, Commune FROM villes v INNER JOIN utilisateurs u ON v.Insee = u.Insee;
     $requete = "SELECT DISTINCT prixTTC,designation FROM produit group by prixTTC;";
     $resultat = $madb->query($requete);
     if($resultat){
@@ -49,7 +48,7 @@ function afficheFormulaireProduitsParPrix(){
                 }
                 ?>
             </select>
-            <input type="submit" value="Rechercher un produit par prix"/>
+            <input type="submit" value="Rechercher des produits par prix"/>
         </fieldset>
     </form>
     <?php
@@ -66,8 +65,8 @@ function afficheFormulaireAjoutProd(){
 
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 		<fieldset>
-			<label for="id_name">Nom du produit </label><input type="text" name="nom" id="id_nom" required size="20" /><br />
-			<label for="id_pass">Prix du produit </label><input type="number" step ="0.01" name="pass" required id="id_pass" size="10" /><br />
+			<label for="id_nom">Nom du produit </label><input type="text" name="nom" id="id_nom" required size="20" /><br />
+			<label for="id_prix">Prix du produit </label><input type="number" step ="0.01" name="pass" required id="id_pass" size="10" /><br />
 			<input type="submit" value="Insérer"/>
 		</fieldset>
 	</form>

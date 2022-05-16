@@ -4,7 +4,7 @@ include 'fonctions.php';
 include 'formulaire.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang='fr'>
 
     <head>
         <meta charset="utf-8">
