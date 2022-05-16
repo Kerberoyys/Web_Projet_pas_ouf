@@ -15,7 +15,7 @@ function afficheMenu(){
     if($_SESSION['statut']=="administrateur"){
         ?>
         <li><a href="insertion.php?action=inserer_produit" title="Insérer un utilisateur">Insérer un produit</a></li>
-        <li><a href="update.php?action=modifier_produit" title="Modifier un utilisateur">Modifier un produit</a></li>
+        <li><a href="modification.php?action=modifier_produit" title="Modifier un utilisateur">Modifier un produit</a></li>
         <?php
     }
     ?>
@@ -58,6 +58,21 @@ function afficheFormulaireProduitsParPrix(){
 }
 
 
+//*******************************************************************************************
 
+function afficheFormulaireAjoutProd(){
+    // connexion BDD et récupération des villes
+		echo "<br/>";
 
-?>
+	?>
+
+	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+		<fieldset>
+			<label for="id_name">Nom du produit </label><input type="text" name="nom" id="id_nom" required size="20" /><br />
+			<label for="id_pass">Prix du produit </label><input type="number" step ="0.01" name="pass" required id="id_pass" size="10" /><br />
+			<input type="submit" value="Insérer"/>
+		</fieldset>
+	</form>
+    <?php
+    echo "<br/>";
+}

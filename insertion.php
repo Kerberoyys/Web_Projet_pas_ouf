@@ -30,8 +30,27 @@
         ?>
     </nav>
 
-
     <body>
+
+        <article>
+
+            <?php
+            echo '<h1>Inserer un nouveau produit :</h1>';
+            afficheFormulaireAjoutProd();
+            #La vérification du formulaire doit se faire au niveau du client en Javascript (Option 2).
+            #ici
+            ?>
+
+
+        </article>
+
+        <aside>
+            <?php
+            echo '<h1> Liste des produits:</h1>';
+            $prod = listeProd();
+            if ($prod) afficheTableau($prod);
+            ?>
+        </aside>
     </body>
 
 
