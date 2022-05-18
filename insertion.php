@@ -10,6 +10,7 @@
 <head>
     <meta charset="utf-8">
     <link href="style1.css" rel="stylesheet" type="text/css" />
+    <script src="verif_form.js" type="text/javascript"></script>
     <title>Insertion_produit</title>
 </head>
 
@@ -40,7 +41,8 @@
             #La vérification du formulaire doit se faire au niveau du client en Javascript (Option 2).
             #ici
             ?>
-
+            
+        
 
         </article>
 
