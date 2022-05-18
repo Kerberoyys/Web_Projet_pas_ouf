@@ -5,22 +5,18 @@ function validerForm(){
 	
 	var prix = document.getElementById("id_pass").value;
 	
+	var reg = /^[Nike ][a-zA-Z0-9 ]{2,}$/;
+
+
+	if(reg.test(produit) == false){
+		document.getElementById("valid_nom").innerHTML="Le nom du produit n'est pas valide";
+		}
 	if (prix<0){
-		alert("Vous devez saisir un prix valide pour votre produit. ");
+		document.getElementById("valid_prix").innerHTML="Le prix du produit n'est pas valide";
 	}
 	else{
-		retour = true;
+		retour=true;
 	}
-	switch(prix)
-				{
-					case "0":	
-						alert("Vous devez saisir un nom valide pour votre produit. ");	
-					break;
-					case "2":	
-						alert("Carré");
-					break;
-					default:
-						retour = true;
-				}
 	return retour;
 }
+

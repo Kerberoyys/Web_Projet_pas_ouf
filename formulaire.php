@@ -66,7 +66,9 @@ function afficheFormulaireAjoutProd(){
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validerForm();">
 		<fieldset>
 			<label for="id_nom">Nom du produit </label><input type="text" name="nom" id="id_nom" required size="20" /><br />
+            <p id="valid_nom"></p>
 			<label for="id_prix">Prix du produit </label><input type="number" step ="0.01" name="pass" required id="id_pass" size="10" /><br />
+            <p id="valid_prix"></p>
 			<input type="submit" value="Insérer"/>
 		</fieldset>
 	</form>
