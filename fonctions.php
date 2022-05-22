@@ -95,6 +95,22 @@ function afficheTableau($tab){
     }
     echo '</table>';
 }
+//*******************************************************************************************
+function ajoutProduit($nom,$prix){
+    $retour=0;
+    $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
+    $nom = $madb->quote($nom);
+	$prix = $madb->quote($prix);
+
+    $requete = " INSERT INTO produit (prixTTC,designation) VALUES ($prix,$nom);  ";
+	$resultat = $madb->exec($requete);	
+	if ($resultat == false ) 
+	    $retour = 0;
+	else 
+		$retour = $resultat;
+
+    return $retour;
+}
 
 //*******************************************************************************************
 
