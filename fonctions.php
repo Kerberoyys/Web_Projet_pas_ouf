@@ -101,14 +101,20 @@ function ajoutProduit($nom,$prix){
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
     $nom = $madb->quote($nom);
 	$prix = $madb->quote($prix);
-
-    $requete = " INSERT INTO produit (prixTTC,designation) VALUES ($prix,$nom);  ";
-	$resultat = $madb->exec($requete);	
-	if ($resultat == false ) 
-	    $retour = 0;
-	else 
-		$retour = $resultat;
-
+    $requete = " SELECT designation FROM produit WHERE designation=$nom;  ";
+    $resultat = $madb->query($requete);	
+    $resultat=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    if(empty($resultat)){
+        $requete = " INSERT INTO produit (prixTTC,designation) VALUES ($prix,$nom);  ";
+        $resultat = $madb->exec($requete);	
+        if ($resultat == false ) 
+            $retour = 0;
+        else 
+            $retour = $resultat;
+    }
+    else{
+        echo "<p>Ce produit existe déjâ.</p>";  
+    }
     return $retour;
 }
 

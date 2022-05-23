@@ -40,13 +40,10 @@
             afficheFormulaireAjoutProd();
             #La vérification du formulaire doit se faire au niveau du client en Javascript (Option 2).
             #ici
-            if(!empty($_POST) && isset($_POST["nom"])&& isset($_POST ["pass"])){
-                ajoutProduit($_POST["nom"],$_POST ["pass"]);
+            if(!empty($_POST) && isset($_POST["nom"])&& isset($_POST ["prix"])){
+                ajoutProduit($_POST["nom"],$_POST ["prix"]);
             }
             ?>
-            
-        
-
         </article>
 
         <aside>
