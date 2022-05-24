@@ -4,23 +4,29 @@
 
 function afficheMenu(){
     ?>
-    <ul class = "horizontal">
-        <li><a href="index.php" title="Accueil">Accueil </a></li>
-        <li><a href="index.php?action=liste_produits" title="Lister les produits">Lister les produits</a></li>
-        <li><a href="index.php?action=liste_produits_prix" title="Lister les produits par prix">Lister les
-                produits par prix</a></li>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">Accueil</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="index.php?action=liste_produits" title="Lister les produits">Lister les produits</a>
+                <a class="nav-link" href="index.php?action=liste_produits_prix">Lister les produits par prix</a>
 
-    <?php
-    if($_SESSION['statut']=="administrateur"){
-        ?>
-        <li><a href="insertion.php?action=insérer_produit" title="Insérer un produit">Insérer un produit</a></li>
-        <li><a href="modification.php?action=modifier_avis" title="Modifier un avis">Modifier un avis</a></li>
-        <?php
-    }
-    ?>
-        <p><a href="index.php?action=logout" title="Déconnexion">Se déconnecter</a></p>
 
-    </ul>
+                <?php
+                if($_SESSION['statut']=="administrateur"){
+                    ?>
+                    <a class="nav-link" href="insertion.php?action=insérer_produit" title="Insérer un produit">Insérer un produit</a>
+                    <a class="nav-link" href="modification.php?action=modifier_avis" title="Modifier un avis">Modifier un avis</a>
+
+                    <?php
+                }
+                ?>
+                <a class="nav-link" href="index.php?action=logout" title="Déconnexion">Se déconnecter</a>
+            </div>
+        </div>
+    </div>
+
+
 
     <?php
 }
@@ -65,9 +71,9 @@ function afficheFormulaireAjoutProd(){
 
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validerForm()">
 		<fieldset>
-			<label for="id_nom">Nom du produit </label><input type="text" name="nom" id="id_nom" required size="20" /><br />
+			<label for="id_nom">Nom du produit :</label><input type="text" name="nom" id="id_nom" required size="20" /><br />
             <p id="valid_nom"></p>
-			<label for="id_prix">Prix du produit </label><input type="number" step ="0.01" name="prix" required id="id_prix" size="10" /><br />
+			<label for="id_prix">Prix du produit :</label><input type="number" step ="0.01" name="prix" required id="id_prix" size="10" /><br />
             <p id="valid_prix"></p>
 			<input type="submit" value="Insérer"/>
 		</fieldset>

@@ -3,22 +3,23 @@
     include 'fonctions.php';
     include 'formulaire.php';
 ?>
-
 <!DOCTYPE html>
 <html lang='fr'>
 
 <head>
     <meta charset="utf-8">
     <link href="style1.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
     <script src="verif_form.js" type="text/javascript"></script>
     <title>Insertion_produit</title>
 </head>
 
     <header>
-        <h1>Insertions de nouveaux produits nike.</h1>
+       <title>Insertion de produits </title>
     </header>
 
-    <nav>
+    <nav class="navbar navbar-expand-lg bg-light">
         <?php
         if(empty($_SESSION) || isset ($_SESSION["statut"]) && $_SESSION["statut"] !="administrateur") {
             echo "<p> Vous n'êtes pas connecté ou pas admin</p>";
@@ -31,7 +32,16 @@
         ?>
     </nav>
 
-    <body>
+    <main class="container">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic">Insertion d'un nouveau produit</h1>
+            <p class="lead my-3">Page accessible uniquement en administrateur pour pouvoir ajouter la paire de chaussure nike de votre choix</p>
+            <?php
+            echo '<p>Vous êtes connectés avec le compte ' . $_SESSION['username'] . '</p>';
+            ?>
+        </div>
+    </div>
 
         <article>
 
@@ -53,7 +63,7 @@
             if ($prod) afficheTableau($prod);
             ?>
         </aside>
-    </body>
+    </main>
 
 
 <footer>

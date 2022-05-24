@@ -9,26 +9,16 @@ include 'formulaire.php';
     <head>
         <meta charset="utf-8">
         <link href="style1.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
         <title>Modification_Produit</title>
     </head>
 
     <header>
-        <h1>Modifications des avis.</h1>
-        <?php
-
-        #Le choix de l’élément à modifier se fera à l’aide d’un formulaire dynamique. La vérification du
-        #formulaire (modification) doit se faire au niveau du serveur avec une CAPTCHA (Option 4).
-
-
-        #En réponse à ce choix vous afficherez un formulaire pré-rempli avec les données de l’élément à
-        #modifier. L’envoi de ce formulaire (pré-rempli) pour valider les modifications se feraen rappelant la même page avec l’affichage des informations mises à jour (Option 6).
-
-        #
-        ?>
-
+        <title>Modifier un avis</title>
     </header>
 
-    <nav>
+    <nav class="navbar navbar-expand-lg bg-light">
         <?php
         if(empty($_SESSION) || isset ($_SESSION["statut"]) && $_SESSION["statut"] !="administrateur") {
             echo "<p> Vous n'etes pas connecté ou pas admin</p>";
@@ -40,8 +30,17 @@ include 'formulaire.php';
 
         ?>
     </nav>
-    
-    <body>
+
+    <main class="container">
+        <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+            <div class="col-md-6 px-0">
+                <h1 class="display-4 fst-italic">Modifier un avis</h1>
+                <p class="lead my-3">Page accessible uniquement en administrateur pour pouvoir modifier l'avis de votre choix</p>
+                <?php
+                echo '<p>Vous êtes connectés avec le compte ' . $_SESSION['username'] . '</p>';
+                ?>
+            </div>
+        </div>
 
     <article>
         <?php
@@ -58,7 +57,7 @@ include 'formulaire.php';
         if ($prod) afficheTableau($prod);
         ?>
     </aside>
-    </body>
+    </main>
 
 
 

@@ -83,16 +83,20 @@ function listeProduitsParPrix($prix){
 
 
 function afficheTableau($tab){
-    echo '<table>';
+    echo '<table class="table">';
+    echo '<thead>';
     echo '<tr>';// les entetes des colonnes qu'on lit dans le premier tableau par exemple
-    foreach($tab[0] as $colonne=>$valeur){		echo "<th>$colonne</th>";		}
+    foreach($tab[0] as $colonne=>$valeur){		echo "<th scope='col'>$colonne</th>";		}
     echo "</tr>\n";
+    echo '</thead>';
+    echo '<tbody class="table-group-divider">';
     // le corps de la table
     foreach($tab as $ligne){
         echo '<tr>';
         foreach($ligne as $cellule)		{		echo "<td>$cellule</td>";		}
         echo "</tr>\n";
     }
+    echo'</tbody>';
     echo '</table>';
 }
 //*******************************************************************************************
