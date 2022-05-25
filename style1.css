@@ -78,3 +78,14 @@ li a:hover:not(.active) {
 h1 {
     text-decoration: underline;
 }
+
+section {
+    width:100%;
+    float :left;
+
+}
+
+image {
+    margin: 15px;
+}
+
