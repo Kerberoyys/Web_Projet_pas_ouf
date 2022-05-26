@@ -92,7 +92,13 @@ include 'formulaire.php';
 
         <?php
         $res = topchaussure();
-        var_dump($res);
+        var_dump($res[0]);
+        var_dump($res[1]);
+        var_dump($res[2]);
+        var_dump($res[3]);
+        var_dump($res[4]);
+        var_dump($res[5]);
+
         ?>
         <h1>TOP 3 des meilleurs chaussures :</h1>
     <div class="album py-5">
@@ -101,30 +107,35 @@ include 'formulaire.php';
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img src="image/nike_Impact.png" width=100%>
+                        <?php
+                        echo '<img src='.$res[0].' width=100%>';
 
-                        <div class="card-body">
-                            <p class="card-text">TOP 1 : Nike impact</p>
-                        </div>
+                        echo '<div class="card-body">';
+                            echo'<p class="card-text">TOP 1 : '.$res[1].'</p>';
+                        echo'</div>'
+                        ?>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img src="image/nike_Mercurial.png">
+                        <?php
+                        echo '<img src='.$res[2].' width=100%>';
 
-                        <div class="card-body">
-                            <p class="card-text">TOP 2 : Nike Mercurial</p>
-                        </div>
+                        echo '<div class="card-body">';
+                        echo'<p class="card-text">TOP 2 : '.$res[3].'</p>';
+                        echo'</div>'
+                        ?>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img src="image/nike_Plus.png">
+                        <?php
+                        echo '<img src='.$res[4].' width=100%>';
 
-                        <div class="card-body">
-                            <p class="card-text">TOP 3 : Nike Plus</p>
-
-                        </div>
+                        echo '<div class="card-body">';
+                        echo'<p class="card-text">TOP 3 : '.$res[5].'</p>';
+                        echo'</div>'
+                        ?>
                     </div>
                 </div>
             </div>

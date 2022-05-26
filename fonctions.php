@@ -127,13 +127,20 @@ function topchaussure(){
     $retour = '';
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
 
-    $requete = "select designation,image from avisclient INNER JOIN produit on avisclient.idProduit = produit.idProduit group by note ORDER BY note DESC LIMIT 3;";
+    $requete = "select DISTINCT designation,image from avisclient INNER JOIN produit on avisclient.idProduit = produit.idProduit group by note ORDER BY note DESC LIMIT 3;";
     $resultat =$madb->query($requete);
     $resultat=$resultat->fetchAll(PDO::FETCH_ASSOC);
     if(isset($resultat)) {
         $retour = $resultat;
     }
-    return $retour;
+
+    foreach ($resultat as $res) {
+        $retourne[] = $res["image"];
+        $retourne[] = $res["designation"];
+    }
+
+
+    return $retourne;
 }
 
 
