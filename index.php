@@ -92,13 +92,6 @@ include 'formulaire.php';
 
         <?php
         $res = topchaussure();
-        var_dump($res[0]);
-        var_dump($res[1]);
-        var_dump($res[2]);
-        var_dump($res[3]);
-        var_dump($res[4]);
-        var_dump($res[5]);
-
         ?>
         <h1>TOP 3 des meilleurs chaussures :</h1>
     <div class="album py-5">
