@@ -80,8 +80,8 @@ h1 {
 }
 
 section {
-    width:100%;
-    float :left;
+    clear: both;
+    margin-top:2%;
 
 }
 

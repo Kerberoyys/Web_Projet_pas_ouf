@@ -87,22 +87,51 @@ include 'formulaire.php';
 
 
     </aside>
-    <section title="oko">
-        <div class="card shadow-sm">
-            <img src="image/nike_Impact.png" sizes="50%">
-            <div class="card-body">
-                <p class="card-text"> Nike</p>
+
+    <section>
+
+        <?php
+        $res = topchaussure();
+        var_dump($res);
+        ?>
+        <h1>TOP 3 des meilleurs chaussures :</h1>
+    <div class="album py-5">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="image/nike_Impact.png" width=100%>
+
+                        <div class="card-body">
+                            <p class="card-text">TOP 1 : Nike impact</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="image/nike_Mercurial.png">
+
+                        <div class="card-body">
+                            <p class="card-text">TOP 2 : Nike Mercurial</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="image/nike_Plus.png">
+
+                        <div class="card-body">
+                            <p class="card-text">TOP 3 : Nike Plus</p>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <img src="image/nike_Impact.png" sizes="50%">
-        <p class="card-text">Nike Impact </p>
-        <img src="image/nike_FlyEase.png" sizes="50%">
-        <p class="card-text">Nike Impact </p>
-        <img src="image/nike_Dawn.png" sizes="50%">
-        <p class="card-text">Nike Impact </p>
-        <img src="image/nike_Mercurial.png" sizes="50%">
-        <p class="card-text">Nike Impact </p>
+    </div>
     </section>
+
 
 </main>
 
