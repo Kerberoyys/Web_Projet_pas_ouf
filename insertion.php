@@ -48,8 +48,6 @@
             <?php
             echo '<h1>Insérer un nouveau produit :</h1>';
             afficheFormulaireAjoutProd();
-            #La vérification du formulaire doit se faire au niveau du client en Javascript (Option 2).
-            #ici
             if(!empty($_POST) && isset($_POST["nom"])&& isset($_POST ["prix"])){
                 ajoutProduit($_POST["nom"],$_POST ["prix"]);
             }

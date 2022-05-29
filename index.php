@@ -72,7 +72,6 @@ include 'formulaire.php';
                     if ($prod) afficheTableau($prod);
                     break;
                 case "liste_produits_prix":
-                    echo '<h1>Lister les produits par prix :</h1>';
                     afficheFormulaireProduitsParPrix();
                     break;
             }

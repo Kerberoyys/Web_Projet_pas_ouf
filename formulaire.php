@@ -46,6 +46,7 @@ function afficheFormulaireProduitsParPrix(){
     ?>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <fieldset>
+            <h1>Lister les produits par prix :</h1>
             <label for="id_prix">Prix :</label>
             <select id="id_prix" name="prix" size="1">
                 <?php
