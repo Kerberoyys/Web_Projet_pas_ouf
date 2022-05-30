@@ -46,12 +46,16 @@ include 'formulaire.php';
     echo '<h1>Modifier les avis :</h1>';
     $prod = listeAvis();
     afficheFormulaireChoixModifProd($prod);
-    var_dump($_POST);
-    if(isset ($_POST["com"]) && $_POST["com"] !="") {
-        listeAvisPrenom($_POST["com"]);
-        afficheFormulaireModifProd($_POST);
+    if(empty($_SESSION) || isset ($_POST["com"]) && $_POST["com"] !="") {
+        $choix_avi=listeAvisPrenom($_POST["com"]);
+        afficheFormulaireModifProd($choix_avi);
+        if(empty($_SESSION) || isset($_POST) && $_POST["note"] !="" && $_POST["com"] !="") {
+            modifProduit($_POST);
+            listeAvis();
+    
+        }
     }
-
+    
     ?>
 
 </article>
