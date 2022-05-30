@@ -18,14 +18,12 @@ function compteExiste($mail, $pass)
 //*******************************************************************************************
 
 function isAdmin($login)
-{ // Retourne la valeur du statut. Changement de sujet!!!!!
+{
     $retour = false;
     // A faire
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
     $login = $madb->quote($login);
-    //SELECT Statut FROM utilisateurs WHERE Email = 'etu@etu.fr'
     $requete = "SELECT statut FROM comptes WHERE login = $login;";
-    //var_dump($requete);echo "<br/>";
     $resultat = $madb->query($requete);
     if ($resultat) {
         $res = $resultat->fetch(PDO::FETCH_ASSOC);
@@ -76,53 +74,40 @@ function listeProduitsParPrix($prix){
 
 
     return $retour;
+
 }
 //*******************************************************************************************
-
-
-
-
-function afficheTableau($tab){
-    echo '<table class="table">';
-    echo '<thead>';
-    echo '<tr>';// les entetes des colonnes qu'on lit dans le premier tableau par exemple
-    foreach($tab[0] as $colonne=>$valeur){		echo "<th scope='col'>$colonne</th>";		}
-    echo "</tr>\n";
-    echo '</thead>';
-    echo '<tbody class="table-group-divider">';
-    // le corps de la table
-    foreach($tab as $ligne){
-        echo '<tr>';
-        foreach($ligne as $cellule)		{		echo "<td>$cellule</td>";		}
-        echo "</tr>\n";
-    }
-    echo'</tbody>';
-    echo '</table>';
-}
-//*******************************************************************************************
-function ajoutProduit($nom,$prix){
+function ajoutAvis($note,$com,$chaussures){
     $retour=0;
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
-    $nom = $madb->quote($nom);
-	$prix = $madb->quote($prix);
-    $requete = " SELECT designation FROM produit WHERE designation=$nom;  ";
-    $resultat = $madb->query($requete);	
-    $resultat=$resultat->fetchAll(PDO::FETCH_ASSOC);
-    if(empty($resultat)){
-        $requete = " INSERT INTO produit (prixTTC,designation) VALUES ($prix,$nom);  ";
-        $resultat = $madb->exec($requete);	
-        if ($resultat == false ) 
+    $prenom = ($_SESSION['username']);
+    $chaussures = $madb->quote($chaussures);
+    $requete = "SELECT idProduit FROM produit WHERE designation=$chaussures;";
+    $resultat = $madb->query($requete);
+    if($resultat) {
+        $resultat=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    $idProd = $resultat[0]['idProduit'];
+    $note = (int)$note;
+    $prenom = (string)$prenom;
+    $com = (string)$com;
+
+
+    if(isset($resultat)){
+        $requete = "INSERT INTO avisclient (email,idProduit,note,commentaire) VALUES ($prenom,$idProd,$note,$com);";
+        $resultat = $madb->exec($requete);
+        if ($resultat == false)
             $retour = 0;
-        else 
+        else
             $retour = $resultat;
     }
-    else{
-        echo "<p>Ce produit existe déjâ.</p>";  
-    }
+
     return $retour;
 }
 
 //*******************************************************************************************
+
 function topchaussure(){
     $retour = '';
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
@@ -178,8 +163,6 @@ function modifProduit($choix_avi){
 
 //*******************************************************************************************
 
-//*******************************************************************************************
-
 function redirect($url,$tps)
 {
 $temps = $tps * 1000;
@@ -200,6 +183,30 @@ echo "
 
 }
 
+//*******************************************************************************************
+
+function afficheTableau($tab)
+{
+    echo '<table class="table">';
+    echo '<thead>';
+    echo '<tr>';// les entetes des colonnes qu'on lit dans le premier tableau par exemple
+    foreach ($tab[0] as $colonne => $valeur) {
+        echo "<th scope='col'>$colonne</th>";
+    }
+    echo "</tr>\n";
+    echo '</thead>';
+    echo '<tbody class="table-group-divider">';
+    // le corps de la table
+    foreach ($tab as $ligne) {
+        echo '<tr>';
+        foreach ($ligne as $cellule) {
+            echo "<td>$cellule</td>";
+        }
+        echo "</tr>\n";
+    }
+    echo '</tbody>';
+    echo '</table>';
+}
 
 
 ?>

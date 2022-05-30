@@ -65,23 +65,37 @@ function afficheFormulaireProduitsParPrix(){
 
 //*******************************************************************************************
 
-function afficheFormulaireAjoutProd(){
-		echo "<br/>";
+function afficheFormulaireAjoutAvis(){
+    echo "<br/>";
+    $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
+    $compte = $madb->quote($_SESSION["username"]);
+    $requete = 'select prenom from client inner join comptes on client.email = comptes.login where login ='.$compte.';';
+    $resultat = $madb->query($requete);
+    if($resultat) {
+        $nom = $resultat->fetchAll(PDO::FETCH_ASSOC);
+    }
+    ?>
 
-	?>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validerForm()">
+        <fieldset>
+            <?php
+            echo '<label for="id_prenom">Prénom :</label><input type="text" name="prenom" id="id_prenom" required size="20" value="'.$nom[0]["prenom"].'" disabled/><br/>';
+            echo '<p id="valid_chaussure"></p>';
 
-	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validerForm()">
-		<fieldset>
-			<label for="id_nom">Nom du produit :</label><input type="text" name="nom" id="id_nom" required size="20" /><br />
-            <p id="valid_nom"></p>
-			<label for="id_prix">Prix du produit :</label><input type="number" step ="0.01" name="prix" required id="id_prix" size="10" /><br />
-            <p id="valid_prix"></p>
-			<input type="submit" value="Insérer"/>
-		</fieldset>
-	</form>
+            ?>
+            <label for="id_chaussures">Paire de chaussures :</label><input type="text" name="chaussures" id="id_chaussures" required size="20" /><br />
+            <p id="valid_chaussure"></p>
+            <label for="id_note">Note :</label><input type="number" name="note" step ="1" id="id_note" required size="20" /><br />
+            <p id="valid_note"></p>
+            <label for="id_com">Commentaire :</label><input type="text" name="com" id="id_com" required size="20" /><br />
+            <p id="valid_com"></p>
+            <input type="submit" value="Ajouter"/>
+        </fieldset>
+    </form>
     <?php
     echo "<br/>";
 }
+
 
 //*******************************************************************************************
 function afficheFormulaireChoixModifProd($prod){

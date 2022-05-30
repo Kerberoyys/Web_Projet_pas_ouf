@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="avisClientsProduits" uuid="aec54bf1-3cba-401e-b2ab-81b75cf9c99c">
+    <data-source source="LOCAL" name="avisClientsProduits" uuid="34af0105-c143-483b-b243-3e3079ec8a91">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\xampp\htdocs\Projet web\bdd\avisClientsProduits.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\xampp\htdocs\Web_IUT\bdd\avisClientsProduits.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.36.0.3/sqlite-jdbc-3.36.0.3.jar</url>
+        </library>
         <library>
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.36.0.3/sqlite-jdbc-3.36.0.3.jar</url>
         </library>
