@@ -143,7 +143,20 @@ function topchaussure(){
     return $retourne;
 }
 
-
+//*******************************************************************************************
+function listeAvisPrenom($prenom)
+{
+    $retour = false;
+    $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
+    $prenom = $madb->quote($prenom);
+    $requete = "SELECT prenom,designation as 'paire de chaussures',note,commentaire FROM avisclient INNER JOIN produit ON produit.idProduit = avisclient.idProduit INNER JOIN client on client.email = avisclient.email WHERE prenom = $prenom;";
+    $resultat = $madb->query($requete);
+    if ($resultat) {
+        $retour = $resultat->fetchAll(PDO::FETCH_ASSOC);
+    }
+    return $retour;
+}
+//*******************************************************************************************
 
 //*******************************************************************************************
 
@@ -166,5 +179,7 @@ echo "
 </script>\n";
 
 }
+
+
 
 ?>

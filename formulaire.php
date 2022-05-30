@@ -82,3 +82,48 @@ function afficheFormulaireAjoutProd(){
     <?php
     echo "<br/>";
 }
+
+//*******************************************************************************************
+function afficheFormulaireChoixModifProd($prod){
+    echo "<br/>";
+    ?>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <fieldset>
+            <label for="id_com">Commetaire:</label>
+            <select id="id_com" name="com" >
+                <?php
+                foreach($prod as $com){
+                    var_dump($com);
+                    echo '<option value="'.$com['prenom'].'">'.$com["prenom"].'</option>';
+                }
+                ?>
+            </select>
+            <input type="submit" value="Rechercher commentaire"/>
+        </fieldset>
+    </form>
+    <?php
+    echo "<br/>";
+}
+
+//*******************************************************************************************
+function afficheFormulaireModifProd($prod){
+    echo "<br/>";
+
+    ?>
+
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validerForm()">
+        <fieldset>
+            <label for="id_prenom">Prénom </label><input type="text" name="prenom" id="id_prenom" required size="20"  value="<?php echo $prod['com']; ?>"/><br />
+            <p id="valid_prenom"></p>
+            <label for="id_chaussures">Paire de chaussures </label><input type="text" name="chaussures" id="id_chaussures" required size="20" /><br />
+            <p id="valid_chaussures"></p>
+            <label for="id_note">Note </label><input type="number" name="note" step ="1" id="id_note" required size="20" /><br />
+            <p id="valid_note"></p>
+            <label for="id_com">Commentaire </label><input type="text" name="com" id="id_com" required size="20" /><br />
+            <p id="valid_com"></p>
+            <input type="submit" value="Modifier"/>
+        </fieldset>
+    </form>
+    <?php
+    echo "<br/>";
+}
