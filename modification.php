@@ -45,10 +45,10 @@ include 'formulaire.php';
     <?php
     echo '<h1>Modifier les avis :</h1>';
     $prod = listeAvis();
-    afficheFormulaireChoixModifProd($prod);
+    afficheFormulaireChoixModifAvis($prod);
     if(empty($_SESSION) || isset ($_POST["com"]) && $_POST["com"] !="") {
         $choix_avi=listeAvisPrenom($_POST["com"]);
-        afficheFormulaireModifProd($choix_avi);
+        afficheFormulaireModifAvis($choix_avi);
         if(empty($_SESSION) || isset($_POST["note"]) && isset($_POST["com"])) {
             modifProduit($_POST);
     

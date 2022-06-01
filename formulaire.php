@@ -98,7 +98,7 @@ function afficheFormulaireAjoutAvis(){
 
 
 //*******************************************************************************************
-function afficheFormulaireChoixModifProd($prod){
+function afficheFormulaireChoixModifAvis($prod){
     echo "<br/>";
     ?>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -120,7 +120,7 @@ function afficheFormulaireChoixModifProd($prod){
 }
 
 //*******************************************************************************************
-function afficheFormulaireModifProd($choix_avi){
+function afficheFormulaireModifAvis($choix_avi){
     echo "<br/>";
 
     ?>

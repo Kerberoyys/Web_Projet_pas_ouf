@@ -23,3 +23,34 @@ function validerForm(){
 }
 
 
+function (ville)	{
+	var req_AJAX = new XMLHttpRequest();// Objet qui sera crée
+
+	if (window.XMLHttpRequest) 	{	// Mozilla, Safari
+		req_AJAX= new XMLHttpRequest();
+
+	}
+	else {
+		alert("EnvoiRequete: pas de XMLHTTP !");
+	}
+
+	if (req_AJAX) {
+		req_AJAX.onreadystatechange = function() {
+			TraiteListeFiltreUtilisateurs(req_AJAX);
+		};
+		req_AJAX.open("POST","listeUtilisateurs_GUESDON.php", true);
+		req_AJAX.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		req_AJAX.send("action="+ville);
+
+	}
+}
+
+// fin fonction listeUtilisateurs()
+
+function TraiteListeFiltreUtilisateurs(requete)	 {
+
+	document.getElementById("tableau").innerHTML=requete.responseText;
+}
+
+
+
