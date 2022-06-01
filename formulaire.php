@@ -122,10 +122,11 @@ function afficheFormulaireChoixModifAvis($prod){
 //*******************************************************************************************
 function afficheFormulaireModifAvis($choix_avi){
     echo "<br/>";
+    if (!empty($choix_avi)) {
 
     ?>
 
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validerForm()">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return FilterModif()">
         <fieldset>
             <label for="id_prenom">Prénom </label><input type="text" name="prenom" id="id_prenom" required size="20"  value="<?php echo $choix_avi[0]['prenom']; ?>" readOnly/><br />
             <p id="valid_prenom"></p>
@@ -139,5 +140,6 @@ function afficheFormulaireModifAvis($choix_avi){
         </fieldset>
     </form>
     <?php
+    }
     echo "<br/>";
 }

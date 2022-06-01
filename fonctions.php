@@ -150,13 +150,14 @@ function listeAvisPrenom($prenom)
 }
 //*******************************************************************************************
 function modifAvis($choix_avi){
+    var_dump($choix_avi);
     $retour=0;
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
     $prenom = $madb->quote($choix_avi["prenom"]);
     $note = $madb->quote($choix_avi["note"]);
     $com = $madb->quote($choix_avi["com"]);
     $requete = " UPDATE avisclient SET note = $note, commentaire = $com WHERE email = (SELECT email FROM client WHERE prenom = $prenom);  ";
-    $resultat = $madb->exec($requete);	
+    $resultat = $madb->exec($requete);
     if ($resultat == false ) {
         $retour = 0;
         echo "<p>La modification à échoué.</p>";
@@ -164,11 +165,11 @@ function modifAvis($choix_avi){
     else{
         $retour = $resultat;
     }
-    
+
     return $retour;
 }
-
 //*******************************************************************************************
+
 
 function redirect($url,$tps)
 {
