@@ -9,13 +9,13 @@ function afficheMenu(){
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="index.php?action=liste_produits" title="Lister les produits">Lister les produits</a>
-                <a class="nav-link" href="index.php?action=liste_produits_prix">Lister les produits par prix</a>
+                <a class="nav-link" href="index.php?action=liste_produits_prix" title = "Lister les prix">Lister les produits par prix</a>
+                <a class="nav-link" href="insertion.php?action=insérer_produit" title="Insérer un produit">Insérer un produit</a>
 
 
                 <?php
                 if($_SESSION['statut']=="administrateur"){
                     ?>
-                    <a class="nav-link" href="insertion.php?action=insérer_produit" title="Insérer un produit">Insérer un produit</a>
                     <a class="nav-link" href="modification.php?action=modifier_avis" title="Modifier un avis">Modifier un avis</a>
 
                     <?php
