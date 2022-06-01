@@ -150,7 +150,6 @@ function listeAvisPrenom($prenom)
 }
 //*******************************************************************************************
 function modifAvis($choix_avi){
-    var_dump($choix_avi);
     $retour=0;
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
     $prenom = $madb->quote($choix_avi["prenom"]);

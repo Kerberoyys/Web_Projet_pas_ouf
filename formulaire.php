@@ -103,7 +103,7 @@ function afficheFormulaireChoixModifAvis($prod){
     ?>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <fieldset>
-            <label for="id_com">Commetaire:</label>
+            <label for="id_com">Commentaire :</label>
             <select id="id_com" name="com" >
                 <?php
                 foreach($prod as $com){
@@ -128,13 +128,13 @@ function afficheFormulaireModifAvis($choix_avi){
 
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return FilterModif()">
         <fieldset>
-            <label for="id_prenom">Prénom </label><input type="text" name="prenom" id="id_prenom" required size="20"  value="<?php echo $choix_avi[0]['prenom']; ?>" readOnly/><br />
+            <label for="id_prenom">Prénom :</label><input type="text" name="prenom" id="id_prenom" required size="20"  value="<?php echo $choix_avi[0]['prenom']; ?>" readOnly/><br />
             <p id="valid_prenom"></p>
-            <label for="id_chaussures">Paire de chaussures </label><input type="text" name="chaussures" id="id_chaussures" required size="20" value="<?php echo $choix_avi[0]['paire de chaussures']; ?>" readOnly/><br />
+            <label for="id_chaussures">Paire de chaussures :</label><input type="text" name="chaussures" id="id_chaussures" required size="20" value="<?php echo $choix_avi[0]['paire de chaussures']; ?>" readOnly/><br />
             <p id="valid_chaussures"></p>
-            <label for="id_note">Note </label><input type="number" name="note" step ="1" id="id_note" required size="20" value="<?php echo $choix_avi[0]['note']; ?>"/><br />
+            <label for="id_note">Note :</label><input type="number" name="note" step ="1" id="id_note" required size="20" value="<?php echo $choix_avi[0]['note']; ?>"/><br />
             <p id="valid_note"></p>
-            <label for="id_com">Commentaire </label><input type="text" name="com" id="id_com" required size="20" value="<?php echo $choix_avi[0]['commentaire']; ?>" /><br />
+            <label for="id_com">Commentaire : </label><input type="text" name="com" id="id_com" required size="20" value="<?php echo $choix_avi[0]['commentaire']; ?>" /><br />
             <p id="valid_com"></p>
             <input type="submit" value="Modifier"/>
         </fieldset>
