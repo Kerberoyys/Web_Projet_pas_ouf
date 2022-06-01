@@ -136,6 +136,11 @@ function afficheFormulaireModifAvis($choix_avi){
             <p id="valid_note"></p>
             <label for="id_com">Commentaire : </label><input type="text" name="com" id="id_com" required size="20" value="<?php echo $choix_avi[0]['commentaire']; ?>" /><br />
             <p id="valid_com"></p>
+            <label for="id_chaussures">Captcha :</label><input type="text" name="captcha">
+            <img src="image.php" onclick="this.src='image.php?' + Math.random();" alt="captcha" style="cursor:pointer;">
+            <span class="error"></span>
+            </br>
+            <p id="valid_cpatcha"></p>
             <input type="submit" value="Modifier"/>
         </fieldset>
     </form>
