@@ -49,9 +49,8 @@ include 'formulaire.php';
     if(empty($_SESSION) || isset ($_POST["com"]) && $_POST["com"] !="") {
         $choix_avi=listeAvisPrenom($_POST["com"]);
         afficheFormulaireModifProd($choix_avi);
-        if(empty($_SESSION) || isset($_POST) && $_POST["note"] !="" && $_POST["com"] !="") {
+        if(empty($_SESSION) || isset($_POST["note"]) && isset($_POST["com"])) {
             modifProduit($_POST);
-            listeAvis();
     
         }
     }
