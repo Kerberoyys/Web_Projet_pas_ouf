@@ -1,17 +1,17 @@
 function validerForm(){
 	var retour = false;
 	
-	var produit = document.getElementById("id_nom").value;	
+	var com = document.getElementById("id_com").value;
 	
-	var prix = document.getElementById("id_prix").value;
+	var note = document.getElementById("id_note").value;
 	
-	var reg = /^[Nike ][a-zA-Z0-9 ]{2,}$/;
+	var reg = /^[a-zA-Z0-9 ]{2,}$/;
 
 
-	if(reg.test(produit) == false) {
-		document.getElementById("valid_nom").innerHTML = "Le nom du produit n'est pas valide";
-		if (prix < 0) {
-			document.getElementById("valid_prix").innerHTML = "Le prix du produit n'est pas valide";
+	if(reg.test(com) == false) {
+		document.getElementById("valid_com").innerHTML = "Le commentaire du produit n'est pas valide";
+		if (note < 0 && note > 20) {
+			document.getElementById("valid_note").innerHTML = "La note du produit n'est pas valide";
 		}
 	}
 

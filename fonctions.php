@@ -77,33 +77,40 @@ function listeProduitsParPrix($prix){
 
 }
 //*******************************************************************************************
-function ajoutAvis($note,$com,$chaussures){
-    $retour=0;
+
+function ajoutAvis($note,$com,$chaussures)
+{
+    $retour = 0;
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
     $prenom = ($_SESSION['username']);
     $chaussures = $madb->quote($chaussures);
     $requete = "SELECT idProduit FROM produit WHERE designation=$chaussures;";
     $resultat = $madb->query($requete);
-    if($resultat) {
-        $resultat=$resultat->fetchAll(PDO::FETCH_ASSOC);
+    if ($resultat) {
+        $resultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
     }
 
     $idProd = $resultat[0]['idProduit'];
+    $idProd = (int)$idProd;
     $note = (int)$note;
     $prenom = (string)$prenom;
-    $com = (string)$com;
+    $com = $madb->quote($com);
+    $prenom = $madb->quote($prenom);
 
 
-    if(isset($resultat)){
+
+    if (isset($resultat)) {
         $requete = "INSERT INTO avisclient (email,idProduit,note,commentaire) VALUES ($prenom,$idProd,$note,$com);";
-        $resultat = $madb->exec($requete);
-        if ($resultat == false)
-            $retour = 0;
-        else
-            $retour = $resultat;
-    }
+        try {
+            $resultat = $madb->exec($requete);
+        } catch (exception $e) {
 
-    return $retour;
+        } finally {
+        }
+
+        if ($resultat == false) $retour = 0;
+        return $retour;
+    }
 }
 
 //*******************************************************************************************
