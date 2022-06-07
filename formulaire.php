@@ -75,6 +75,15 @@ function afficheFormulaireAjoutAvis(){
     if($resultat) {
         $nom = $resultat->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
+    $compte = $madb->quote($_SESSION["username"]);
+    $requete = 'select designation from produit';
+    $res = $madb->query($requete);
+    if($res) {
+        $chaussures = $res->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
     ?>
 
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validerForm()">
@@ -84,10 +93,23 @@ function afficheFormulaireAjoutAvis(){
             echo '<p id="valid_chaussure"></p>';
 
             ?>
-            <label for="id_chaussures">Paire de chaussures :</label><input type="text" name="chaussures" id="id_chaussures" required size="20" /><br />
+
+
+            <label for="id_chaussures">Paire de chaussures :</label>
+            <select id="id_chaussures" name="chaussure" size="1">
+            <?php
+            foreach($chaussures as $chaussure){
+                echo '<option value="'.$chaussure["designation"].'">'.$chaussure["designation"].'</option>';
+            }
+            ?>
+
+            </select>
+
             <p id="valid_chaussure"></p>
+
+
             <label for="id_note">Note :</label><input type="number" name="note" step ="1" id="id_note" required size="20" aria-valuemax="20" /><br />
-            <p id="valid_note"></p>
+            <p id="valid_note" > </p>
             <label for="id_com">Commentaire :</label><input type="text" name="com" id="id_com" required size="20" /><br />
             <p id="valid_com"></p>
 
