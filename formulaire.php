@@ -2,6 +2,7 @@
 <?php
 
 
+
 function afficheMenu(){
     ?>
     <div class="container-fluid">
@@ -85,7 +86,7 @@ function afficheFormulaireAjoutAvis(){
             ?>
             <label for="id_chaussures">Paire de chaussures :</label><input type="text" name="chaussures" id="id_chaussures" required size="20" /><br />
             <p id="valid_chaussure"></p>
-            <label for="id_note">Note :</label><input type="number" name="note" step ="1" id="id_note" required size="20" /><br />
+            <label for="id_note">Note :</label><input type="number" name="note" step ="1" id="id_note" required size="20" aria-valuemax="20" /><br />
             <p id="valid_note"></p>
             <label for="id_com">Commentaire :</label><input type="text" name="com" id="id_com" required size="20" /><br />
             <p id="valid_com"></p>
@@ -136,11 +137,12 @@ function afficheFormulaireModifAvis($choix_avi){
             <p id="valid_note"></p>
             <label for="id_com">Commentaire : </label><input type="text" name="com" id="id_com" required size="20" value="<?php echo $choix_avi[0]['commentaire']; ?>" /><br />
             <p id="valid_com"></p>
-            <label for="id_chaussures">Captcha :</label><input type="text" name="captcha">
-            <img src="image.php" onclick="this.src='image.php?' + Math.random();" alt="captcha" style="cursor:pointer;">
+            <label for="id_chaussures">Captcha :</label>
+            <input type="text" name="captcha"/>
+            <img src="captcha.php" onclick="this.src='captcha.php?' + Math.random();" alt="captcha" style="cursor:pointer;">
             <span class="error"></span>
             </br>
-            <p id="valid_cpatcha"></p>
+            <p id="valid_captcha"></p>
             <input type="submit" value="Modifier"/>
         </fieldset>
     </form>

@@ -2,6 +2,8 @@
 <?php
 include 'fonctions.php';
 include 'formulaire.php';
+
+
 ?>
 <!DOCTYPE html>
 <html lang='fr'>
@@ -11,6 +13,7 @@ include 'formulaire.php';
     <link href="style1.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="verif_form.js" type="text/javascript"></script>
+
     <title>Modification produit</title>
 </head>
 
@@ -49,8 +52,10 @@ include 'formulaire.php';
     if(isset($_SESSION) && isset ($_POST["com"])) {
         $choix_avi=listeAvisPrenom($_POST["com"]);
         afficheFormulaireModifAvis($choix_avi);
-        if(empty($_SESSION) || isset($_POST["note"]) && isset($_POST["com"])) {
+
+        if(empty($_SESSION) || isset($_POST["note"]) && isset($_POST["com"])){
             modifAvis($_POST);
+
         }
     }
     
