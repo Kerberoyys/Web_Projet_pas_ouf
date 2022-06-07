@@ -90,6 +90,7 @@ function afficheFormulaireAjoutAvis(){
             <p id="valid_note"></p>
             <label for="id_com">Commentaire :</label><input type="text" name="com" id="id_com" required size="20" /><br />
             <p id="valid_com"></p>
+
             <input type="submit" value="Ajouter"/>
         </fieldset>
     </form>
@@ -139,10 +140,10 @@ function afficheFormulaireModifAvis($choix_avi){
             <p id="valid_com"></p>
             <label for="id_chaussures">Captcha :</label>
             <input type="text" name="captcha"/>
-            <img src="captcha.php" onclick="this.src='captcha.php?' + Math.random();" alt="captcha" style="cursor:pointer;">
-            <span class="error"></span>
+            <img src="image.php" onclick="this.src='image.php?' + Math.random();" alt="captcha" style="cursor:pointer;">
             </br>
             <p id="valid_captcha"></p>
+
             <input type="submit" value="Modifier"/>
         </fieldset>
     </form>

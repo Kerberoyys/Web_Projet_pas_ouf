@@ -1,4 +1,5 @@
 <?php session_start();//page contact.php
+phpinfo();
 ?>
 <!DOCTYPE html>
 <html lang="fr" >

@@ -53,10 +53,13 @@ include 'formulaire.php';
         $choix_avi=listeAvisPrenom($_POST["com"]);
         afficheFormulaireModifAvis($choix_avi);
 
-        if(empty($_SESSION) || isset($_POST["note"]) && isset($_POST["com"])){
+        if(empty($_SESSION) || isset($_POST["note"]) && isset($_POST["com"]) && $_SESSION['code'] == $_POST['captcha']){
             modifAvis($_POST);
-
         }
+        if(empty($_SESSION) || isset($_POST["note"]) && isset($_POST["com"]) && $_SESSION['code'] != $_POST['captcha']) {
+            echo ' Votre captcha  est incorrect';
+            }
+
     }
     
     ?>
