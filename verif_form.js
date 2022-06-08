@@ -2,6 +2,7 @@ function validerForm(){
 	var retour = false;
 	var com=document.getElementsById("id_com").value;
 	var note=document.getElementsById("id_note").value;
+	
 
 
 	if (note < 0 || note > 20) {

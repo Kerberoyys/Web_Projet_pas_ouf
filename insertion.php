@@ -48,8 +48,8 @@ include 'formulaire.php';
         <?php
         echo '<h1>Insérer un nouvel avis :</h1>';
         afficheFormulaireAjoutAvis();
-        if(!empty($_POST) && isset($_POST["note"]) && isset($_POST ["com"]) && isset($_POST ["chaussures"])){
-            ajoutAvis($_POST['note'],$_POST ['com'],$_POST ['chaussures']);
+        if(!empty($_POST) && isset($_POST["note"]) && isset($_POST ["com"]) && isset($_POST ["chaussure"])){
+            ajoutAvis($_POST['note'],$_POST ['com'],$_POST ['chaussure']);
         }
         ?>
     </article>

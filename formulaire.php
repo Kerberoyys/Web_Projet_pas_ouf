@@ -77,7 +77,6 @@ function afficheFormulaireAjoutAvis(){
     }
 
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
-    $compte = $madb->quote($_SESSION["username"]);
     $requete = 'select designation from produit';
     $res = $madb->query($requete);
     if($res) {
