@@ -1,15 +1,23 @@
 function validerForm(){
 	var retour = false;
-	var com=document.getElementsById("id_com").value;
-	var note=document.getElementsById("id_note").value;
-	
+	var com=document.getElementById("id_ajoutcom").value;
+	var note=document.getElementById("id_ajoutnote").value;
+	var reg1 = /^[a-zA-Z ]*$/;
+	var reg2 = /^[ ]*$/;
 
-
+	if(reg1.test(com) == false) {
+		document.getElementById("valid_ajoutcom").innerHTML = "Le com n'est pas valide, seules les lettres et les espaces sont autorisées.";
+	}
+	if(reg2.test(com) == true) {
+		document.getElementById("valid_ajoutcom").innerHTML = "Le com n'est pas valide, il n'y a que des espaces";
+	}
+	if (com.length == ''){
+		document.getElementById("valid_ajoutcom").innerHTML = "Le com n'est pas valide";
+	}
 	if (note < 0 || note > 20) {
-		document.getElementById("valid_note").innerHTML = "La note du produit n'est pas valide";
-
+		document.getElementById("valid_ajoutnote").innerHTML = "La note du produit n'est pas valide";
 		if (com.length == ''){
-			document.getElementById("valid_com").innerHTML = "Le com n'est pas valide";
+			document.getElementById("valid_ajoutcom").innerHTML = "Le com n'est pas valide";
 		}
 
 	}

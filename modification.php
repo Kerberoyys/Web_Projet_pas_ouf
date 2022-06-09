@@ -52,7 +52,7 @@ include 'formulaire.php';
     if(isset($_SESSION) && isset ($_POST["com"])) {
         $choix_avi=listeAvisPrenom($_POST["com"]);
         afficheFormulaireModifAvis($choix_avi);
-
+        
         if(empty($_SESSION) || isset($_POST["note"]) && isset($_POST["com"]) && $_SESSION['code'] == $_POST['captcha']){
             modifAvis($_POST);
         }
