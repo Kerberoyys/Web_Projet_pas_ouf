@@ -78,9 +78,16 @@ include 'formulaire.php';
 
 
 
-<footer>
-    <p>Pied de la page <?php echo $_SERVER['PHP_SELF']; ?> </p>
-    <a href="javascript:history.back()">Retour à la page précédente</a>
-</footer>
+<!-- Affichage du footer -->
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-8 my-4 border-top">
+        <div class="col-md-4 align-items-center">
+            <p>Pied de la page <?php echo $_SERVER['PHP_SELF']; ?></p>
+            <a href="javascript:history.back()">Retour à la page précédente</a>
+
+        </div>
+    </footer>
+</div>
+
 
 </html>

@@ -1,9 +1,9 @@
-
-
 nav {
     margin-left: 8%;
 }
-
+main {
+    margin-left: 8%;
+}
 article {
     float :left;
     width: 49%;
@@ -16,11 +16,9 @@ aside{
 
 footer
 {
-    margin-left: 8%;
-    width:90%;
+    width:100%;
     clear: both;
     margin-top:2%;
-    padding:1%;
 }
 
 
