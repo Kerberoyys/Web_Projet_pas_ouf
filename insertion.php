@@ -1,3 +1,5 @@
+<!--Démarrage des sessions et appelle des fonctions -->
+
 <?php session_start();?>
 <?php
 include 'fonctions.php';
@@ -6,6 +8,7 @@ include 'formulaire.php';
 <!DOCTYPE html>
 <html lang='fr'>
 
+<!-- Fonction appelées ainsi que les links (bootstrap) -->
 <head>
     <meta charset="utf-8">
     <link href="style1.css" rel="stylesheet" type="text/css" />
@@ -32,6 +35,7 @@ include 'formulaire.php';
     ?>
 </nav>
 
+<!-- Menu insertion affiché seulement si l'utilisateur est connecté -->
 <main class="container">
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
         <div class="col-md-6 px-0">
@@ -49,6 +53,7 @@ include 'formulaire.php';
         echo '<h1>Insérer un nouvel avis :</h1>';
         afficheFormulaireAjoutAvis();
         if(!empty($_POST) && isset($_POST["note"]) && isset($_POST ["com"]) && isset($_POST ["chaussure"])){
+            #fonction qui ajoute un avis si les données sont bien renseignées
             ajoutAvis($_POST['note'],$_POST ['com'],$_POST ['chaussure']);
         }
         ?>
@@ -56,6 +61,7 @@ include 'formulaire.php';
 
     <aside>
         <?php
+        #Affiche le tableau des avis
         echo '<h1> Liste des avis:</h1>';
         $prod = listeAvis();
         if ($prod) afficheTableau($prod);
@@ -63,7 +69,7 @@ include 'formulaire.php';
     </aside>
 </main>
 
-
+<!-- Affichage du footer -->
 <footer>
     <p>Pied de la page <?php echo $_SERVER['PHP_SELF']; ?> </p>
     <a href="javascript:history.back()">Retour à la page précédente</a>

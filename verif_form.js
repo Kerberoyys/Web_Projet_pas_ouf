@@ -15,9 +15,9 @@ function validerForm(){
 		document.getElementById("valid_ajoutcom").innerHTML = "Le com n'est pas valide";
 	}
 	if (note < 0 || note > 20) {
-		document.getElementById("valid_ajoutnote").innerHTML = "La note du produit n'est pas valide";
+		document.getElementById("valid_ajoutnote").innerHTML = "Votre note doit être entre 0 et 20";
 		if (com.length == ''){
-			document.getElementById("valid_ajoutcom").innerHTML = "Le com n'est pas valide";
+			document.getElementById("valid_ajoutcom").innerHTML = "Le commentaire n'est pas valide";
 		}
 
 	}

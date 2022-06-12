@@ -11,7 +11,7 @@ function afficheMenu(){
             <div class="navbar-nav">
                 <a class="nav-link" href="index.php?action=liste_produits" title="Lister les produits">Lister les produits</a>
                 <a class="nav-link" href="index.php?action=liste_produits_prix" title = "Lister les prix">Lister les produits par prix</a>
-                <a class="nav-link" href="insertion.php?action=insérer_produit" title="Insérer un produit">Insérer un produit</a>
+                <a class="nav-link" href="insertion.php?action=insérer_produit" title="Insérer un avis">Insérer un avis</a>
 
 
                 <?php

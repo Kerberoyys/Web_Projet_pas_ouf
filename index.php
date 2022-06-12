@@ -36,7 +36,7 @@ include 'formulaire.php';
     if (!empty($_SESSION) && !empty($_GET) && isset($_GET['action']) && $_GET['action'] == 'logout') {
         $_SESSION = array();
         session_destroy();
-        redirect("index.php", 1);
+        redirect("index.php", 0);
     }
 
     ?>
@@ -53,6 +53,7 @@ include 'formulaire.php';
             <p class="lead my-3">Page accessible uniquement a nos clients les plus fidèles vous pouvez voir les avis de
                 vos chaussures nike préférées</p>
             <?php
+            if (isset($_SESSION))
             echo '<p>Vous êtes connectés avec le compte ' . $_SESSION['username'] . '</p>';
             ?>
         </div>
