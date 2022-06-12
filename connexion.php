@@ -1,11 +1,14 @@
-<?php session_start();?>
+<!--Démarrage des sessions et appelle des fonctions -->
+
+<?php session_start();
+include 'fonctions.php';
+?>
 <!DOCTYPE html>
 <html lang = 'fr'>
 
+<!-- Fonction appelées ainsi que les links (bootstrap) -->
+
     <head>
-        <?php
-        include 'fonctions.php';
-        ?>
         <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
         <title>Page de connexion</title>
     </head>
@@ -64,7 +67,4 @@
             </form>
         </div>
     </body>
-
-
-  
 </html>

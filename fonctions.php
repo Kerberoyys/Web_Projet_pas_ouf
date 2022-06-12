@@ -1,6 +1,6 @@
 <?php
 
-
+// Verifie si le compte existe a l'aide de la base de donné
 function compteExiste($mail, $pass)
 {
     $retour = false;
@@ -17,6 +17,7 @@ function compteExiste($mail, $pass)
 
 //*******************************************************************************************
 
+// Vérifie si l'utilisateur qui se connecte est un administrateur
 function isAdmin($login)
 {
     $retour = false;
@@ -34,7 +35,7 @@ function isAdmin($login)
 
 //*******************************************************************************************
 
-
+// Fonction qui liste tous les produits de la base avisClientsProduits*
 function listeProd()
 {
 
@@ -49,6 +50,8 @@ function listeProd()
 }
 
 //*******************************************************************************************
+
+// Fonction qui liste tous les avis de la base avisClientsProduits
 function listeAvis()
 {
     $retour = false;
@@ -62,6 +65,7 @@ function listeAvis()
 }
 //*******************************************************************************************
 
+//Fonction qui liste les produits avec un menu deroulant a partir de leur prix
 function listeProduitsParPrix($prix){
     $retour = false ;
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
@@ -78,6 +82,8 @@ function listeProduitsParPrix($prix){
 }
 //*******************************************************************************************
 
+
+//Fonction qui ajoute des avis elle est appelé par un test qui verifie les données envoyées par le formulaire
 function ajoutAvis($note,$com,$chaussures)
 {
     $retour = 0;
@@ -115,6 +121,7 @@ function ajoutAvis($note,$com,$chaussures)
 
 //*******************************************************************************************
 
+// Fournit le top 3 des chaussures
 function topchaussure(){
     $retour = '';
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
@@ -136,6 +143,8 @@ function topchaussure(){
 }
 
 //*******************************************************************************************
+
+//Donne l'avis par prénom
 function listeAvisPrenom($prenom)
 {
     $retour = false;
@@ -149,6 +158,8 @@ function listeAvisPrenom($prenom)
     return $retour;
 }
 //*******************************************************************************************
+
+//Fonction qui permet de modifier un avis
 function modifAvis($choix_avi){
     $retour=0;
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
@@ -169,7 +180,7 @@ function modifAvis($choix_avi){
 }
 //*******************************************************************************************
 
-
+//Fontion qui redirige vers une page donnée la page et le temps avant l'envoie vers la page
 function redirect($url,$tps)
 {
 $temps = $tps * 1000;
@@ -192,6 +203,7 @@ echo "
 
 //*******************************************************************************************
 
+//Fonction qui affiche un tableau à partir d'un array (tableau), il met en forme
 function afficheTableau($tab)
 {
     echo '<table class="table">';

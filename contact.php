@@ -1,3 +1,6 @@
+<!-- Page de contact pour le Captcha -->
+
+
 <?php session_start();//page contact.php
 phpinfo();
 ?>

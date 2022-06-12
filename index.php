@@ -1,8 +1,13 @@
+<!--Démarrage des sessions et appelle des fonctions -->
+
 <?php session_start(); ?>
 <?php
 include 'fonctions.php';
 include 'formulaire.php';
 ?>
+
+<!-- Fonction appelées ainsi que les links (bootstrap) -->
+
 <!DOCTYPE html>
 <html lang='fr'>
 
@@ -16,6 +21,7 @@ include 'formulaire.php';
 
 <body>
 
+<!-- Menu Principale affiché seulement si l'utilisateur est connecté -->
 
 <nav class="navbar navbar-expand-lg justify-content-between bg-light">
     <?php
@@ -25,6 +31,8 @@ include 'formulaire.php';
         afficheMenu();
     }
 
+//    Verification si l'utilisateur veut se déconnecter
+
     if (!empty($_SESSION) && !empty($_GET) && isset($_GET['action']) && $_GET['action'] == 'logout') {
         $_SESSION = array();
         session_destroy();
@@ -33,6 +41,8 @@ include 'formulaire.php';
 
     ?>
 </nav>
+
+<!-- Menu avec votre nom de connexion  -->
 
 <main class="container">
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
@@ -48,6 +58,8 @@ include 'formulaire.php';
         </div>
     </div>
 
+    <!-- Tableau avec les avis des clients  -->
+
     <article>
         <?php
         echo '<h1> Avis des clients :</h1>';
@@ -58,12 +70,18 @@ include 'formulaire.php';
 
     <aside>
 
+
         <?php
-        // Affichage du message accueil en fonction de la connexion
+
+        // Regarde si l'utilisateur est connecté sinon affiche un message d'erreur
+
         if (empty($_SESSION))
             echo '<h1>Vous êtes déconnectés</h1>';
 
-        // Route de traitement de la zone centrale de la page en fonction des liens GET du menu s'il y a une session
+
+
+        // Route de traitement de la zone centrale de la page en fonction des liens GET du menu s'il y a une session pour afficher la liste des produits
+
         if (!empty($_SESSION) && !empty($_GET) && isset($_GET["action"])) {
             switch ($_GET["action"]) {
                 case "liste_produits":
@@ -77,6 +95,9 @@ include 'formulaire.php';
             }
         }
 
+        // Route de traitement de la zone centrale de la page en fonction des liens GET du menu s'il y a une session pour afficher le formulaire des produits
+
+
         if (!empty($_SESSION) && !empty($_POST) && isset($_POST['prix'])) {
             afficheFormulaireProduitsParPrix();
             $tab = listeProduitsParPrix($_POST['prix']);
@@ -89,18 +110,25 @@ include 'formulaire.php';
 
     <section>
 
+<!--   Affiche le top des chaussures en fonction des notes des avis du client -->
+
         <?php
+        // Fonction qui permet de retourner les meilleures chaussures
         $res = topchaussure();
         ?>
         <h1>TOP 3 des meilleurs chaussures :</h1>
     <div class="album py-5">
         <div class="container">
 
+<!--Affiche du image dans le top 3-->
+
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col">
                     <div class="card shadow-sm">
                         <?php
                         echo '<img src='.$res[0].' width=100%>';
+
+                        // Premiere image
 
                         echo '<div class="card-body">';
                             echo'<p class="card-text">TOP 1 : '.$res[1].'</p>';
@@ -111,6 +139,9 @@ include 'formulaire.php';
                 <div class="col">
                     <div class="card shadow-sm">
                         <?php
+
+                        // Deuxieme image
+
                         echo '<img src='.$res[2].' width=100%>';
 
                         echo '<div class="card-body">';
@@ -122,6 +153,9 @@ include 'formulaire.php';
                 <div class="col">
                     <div class="card shadow-sm">
                         <?php
+
+                        // Troisième image
+
                         echo '<img src='.$res[4].' width=100%>';
 
                         echo '<div class="card-body">';
@@ -137,6 +171,8 @@ include 'formulaire.php';
 
 
 </main>
+
+<!-- Affichage du footer -->
 
 <footer>
     <p>Pied de la page <?php echo $_SERVER['PHP_SELF']; ?></p>
