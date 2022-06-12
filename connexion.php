@@ -49,8 +49,6 @@ include 'fonctions.php';
                         $_SESSION['username']=$_POST['username'];
                         $_SESSION['password']=$_POST['password'];
                         $_SESSION['statut']=isAdmin($_POST['username']);
-                        var_dump($_SESSION['username']);
-                        var_dump($_SESSION['password']);
                         redirect('index.php',0);
                     }
                     else {
