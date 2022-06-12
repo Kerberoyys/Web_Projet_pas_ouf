@@ -63,7 +63,7 @@ include 'formulaire.php';
 
     <article>
         <?php
-        echo '<h1> Avis des clients :</h1>';
+        echo '<h2> Avis des clients :</h2>';
         $prod = listeAvis();
         if ($prod) afficheTableau($prod);
         ?>
@@ -117,7 +117,7 @@ include 'formulaire.php';
         // Fonction qui permet de retourner les meilleures chaussures
         $res = topchaussure();
         ?>
-        <h1>TOP 3 des meilleurs chaussures :</h1>
+        <h2>TOP 3 des meilleurs chaussures :</h2>
     <div class="album py-5">
         <div class="container">
 
@@ -127,7 +127,7 @@ include 'formulaire.php';
                 <div class="col">
                     <div class="card shadow-sm">
                         <?php
-                        echo '<img src='.$res[0].' width=100%>';
+                        echo '<img src='.$res[0].' alt = "image 1">';
 
                         // Premiere image
 
@@ -143,7 +143,7 @@ include 'formulaire.php';
 
                         // Deuxieme image
 
-                        echo '<img src='.$res[2].' width=100%>';
+                        echo '<img src='.$res[2].' alt = "image 2">';
 
                         echo '<div class="card-body">';
                         echo'<p class="card-text">TOP 2 : '.$res[3].'</p>';
@@ -157,7 +157,7 @@ include 'formulaire.php';
 
                         // Troisième image
 
-                        echo '<img src='.$res[4].' width=100%>';
+                        echo '<img src='.$res[4].' alt = "image 3" >';
 
                         echo '<div class="card-body">';
                         echo'<p class="card-text">TOP 3 : '.$res[5].'</p>';

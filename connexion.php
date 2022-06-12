@@ -13,13 +13,15 @@ include 'fonctions.php';
         <title>Page de connexion</title>
     </head>
 
+<body>
+
     <header>
     </header>
 
     <nav>
     </nav>
 
-    <body>
+
         <div id="container">
             <!-- zone de connexion -->
             

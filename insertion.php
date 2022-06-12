@@ -14,13 +14,10 @@ include 'formulaire.php';
     <link href="style1.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-    <script src="verif_form.js" type="text/javascript"></script>
+    <script src="verif_form.js"></script>
     <title>Insertion_avis</title>
 </head>
 
-<header>
-    <title>Insertion d'un avis </title>
-</header>
 
 <nav class="navbar navbar-expand-lg bg-light">
     <?php
@@ -50,7 +47,7 @@ include 'formulaire.php';
     <article>
 
         <?php
-        echo '<h1>Insérer un nouvel avis :</h1>';
+        echo '<h2>Insérer un nouvel avis :</h2>';
         afficheFormulaireAjoutAvis();
         if(!empty($_POST) && isset($_POST["note"]) && isset($_POST ["com"]) && isset($_POST ["chaussure"])){
             #fonction qui ajoute un avis si les données sont bien renseignées
@@ -62,7 +59,7 @@ include 'formulaire.php';
     <aside>
         <?php
         #Affiche le tableau des avis
-        echo '<h1> Liste des avis:</h1>';
+        echo '<h2> Liste des avis:</h2>';
         $prod = listeAvis();
         if ($prod) afficheTableau($prod);
         ?>
