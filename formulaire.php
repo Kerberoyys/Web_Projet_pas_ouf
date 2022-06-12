@@ -77,7 +77,6 @@ function afficheFormulaireAjoutAvis(){
     }
 
     $madb = new PDO('sqlite:bdd/avisClientsProduits.sqlite');
-    $compte = $madb->quote($_SESSION["username"]);
     $requete = 'select designation from produit';
     $res = $madb->query($requete);
     if($res) {
@@ -108,10 +107,10 @@ function afficheFormulaireAjoutAvis(){
             <p id="valid_chaussure"></p>
 
 
-            <label for="id_note">Note :</label><input type="number" name="note" step ="1" id="id_note" required size="20" aria-valuemax="20" /><br />
-            <p id="valid_note" > </p>
-            <label for="id_com">Commentaire :</label><input type="text" name="com" id="id_com" required size="20" /><br />
-            <p id="valid_com"></p>
+            <label for="id_ajoutnote">Note :</label><input type="number" name="note" step ="1" id="id_ajoutnote" required size="20" aria-valuemax="20" /><br />
+            <p id="valid_ajoutnote" ></p>
+            <label for="id_ajoutcom">Commentaire :</label><input type="text" name="com" id="id_ajoutcom" required size="20" /><br />
+            <p id="valid_ajoutcom"></p>
 
             <input type="submit" value="Ajouter"/>
         </fieldset>
@@ -160,7 +159,7 @@ function afficheFormulaireModifAvis($choix_avi){
             <p id="valid_note"></p>
             <label for="id_com">Commentaire : </label><input type="text" name="com" id="id_com" required size="20" value="<?php echo $choix_avi[0]['commentaire']; ?>" /><br />
             <p id="valid_com"></p>
-            <label for="id_chaussures">Captcha :</label>
+            <label for="id_captcha">Captcha :</label>
             <input type="text" name="captcha"/>
             <img src="image.php" onclick="this.src='image.php?' + Math.random();" alt="captcha" style="cursor:pointer;">
             </br>
