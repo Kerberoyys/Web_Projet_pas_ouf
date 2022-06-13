@@ -111,9 +111,7 @@ function ajoutAvis($note,$com,$chaussures)
             $resultat = $madb->exec($requete);
         } catch (exception $e) {
 
-        } finally {
         }
-
         if ($resultat == false) $retour = 0;
         return $retour;
     }
